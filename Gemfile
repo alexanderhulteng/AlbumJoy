@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'open-uri'
+gem 'httparty'
 gem 'nokogiri'
 gem 'byebug'
