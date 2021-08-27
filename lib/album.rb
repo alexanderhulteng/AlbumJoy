@@ -1,5 +1,5 @@
 class Album 
-    attr_accessor :name, :position, :artist, :genre, :release_date, :rating, :featured_review
+    attr_accessor :name, :artist, :genre, :release_date, :rating, :url
 
     @@all = []
 
