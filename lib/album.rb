@@ -1,11 +1,18 @@
 class Album 
-    attr_accessor :name, :artist, :genre, :release_date, :rating, :url
+    attr_accessor :name, :artist, :description, :release_date, :rating, :url
 
     @@all = []
 
-    def initialize(name=nil, position=nil, artist=nil, rating=nil)
+    def self.new_from_index_page(a)
+        self.new(a.css('h4.italic').text.strip, 
+        'https://www.allmusic.com/album/' + a.css('a')[0].attributes['href'].value, 
+        a.css('h4').first.text.strip, 
+        a.css('p').text.strip)
+    end
+    
+    def initialize(name=nil, url=nil, artist=nil, description=nil)
         @name = name
-        @position = position
+        @url = url
         @artist = artist
         @rating = rating
         @@all << self
@@ -14,6 +21,8 @@ class Album
     def self.all
         @@all
     end
+
+   
     
 
 

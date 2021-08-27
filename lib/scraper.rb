@@ -2,28 +2,26 @@ require 'nokogiri'
 require 'byebug'
 require 'open-uri'
 
-
-
-def scraper
-    url = "https://www.allmusic.com/year-in-review/2020"
-    unparsed_page = open(url)
-    parsed_page = Nokogiri::HTML(unparsed_page)
-    albums = parsed_page.css('div.album')
-    list_albums = []
-    albums.each do |a|
-        album = {
-            name: a.css('h4.italic').text.strip,
-            artist: a.css('h4').first.text.strip,
-            description: a.css('p').text.strip,
-            url: 'https://www.allmusic.com/album/' + a.css('a')[0].attributes['href'].value
-        }
-        list_albums << album
-        
-    end
-  byebug
+def get_page
+    Nokogiri::HTML(open("https://www.allmusic.com/year-in-review/2020"))
 end
 
-scraper
+def scrape_albums
+     self.get_page.css("div.album")
+end
+
+def make_objects
+    scrape_albums.each do |a|
+        Album.new_from_index_page(a)
+    end
+end
+
+
+
+
+
+
+
 
 #albumname: css('h4.italic').text
 #artistname: css('h4').first.text
