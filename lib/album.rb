@@ -1,5 +1,5 @@
 class Album 
-    attr_accessor :name, :position, :artist, :genre, :release_date, :rating
+    attr_accessor :name, :position, :artist, :genre, :release_date, :rating, :featured_review
 
     @@all = []
 
@@ -9,7 +9,12 @@ class Album
         @artist = artist
         @rating = rating
         @@all << self
-      end
+    end
+
+    def self.all
+        @@all
+    end
+    
 
 
 
