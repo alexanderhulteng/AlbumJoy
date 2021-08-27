@@ -1,4 +1,5 @@
-class Album 
+require 'pry'
+class AlbumJoy::Album 
     attr_accessor :name, :artist, :description, :release_date, :rating, :url
 
     @@all = []
@@ -14,12 +15,13 @@ class Album
         @name = name
         @url = url
         @artist = artist
-        @rating = rating
+        @description = description
         @@all << self
     end
 
     def self.all
         @@all
+        binding.pry
     end
 
    

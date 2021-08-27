@@ -1,7 +1,5 @@
-require 'nokogiri'
-require 'byebug'
-require 'open-uri'
 
+class AlbumJoy::Scraper
 def get_page
     Nokogiri::HTML(open("https://www.allmusic.com/year-in-review/2020"))
 end
@@ -12,12 +10,13 @@ end
 
 def make_objects
     scrape_albums.each do |a|
-        Album.new_from_index_page(a)
+        AlbumJoy::Album.new_from_index_page(a)
     end
 end
 
 
 
+end
 
 
 
