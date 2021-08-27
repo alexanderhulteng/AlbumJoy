@@ -9,17 +9,18 @@ def scraper
     unparsed_page = open(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
     albums = parsed_page.css('div.album')
-    
+    list_albums = []
     albums.each do |a|
         album = {
             name: a.css('h4.italic').text.strip,
             artist: a.css('h4').first.text.strip,
-            description: a.css('p').text.strip
-            url: a.css('a')[0].attributes['href'].value
+            description: a.css('p').text.strip,
+            url: 'https://www.allmusic.com/album/' + a.css('a')[0].attributes['href'].value
         }
-        byebug
+        list_albums << album
+        
     end
-  
+  byebug
 end
 
 scraper
