@@ -15,3 +15,6 @@ scraper
 #albumname: css('div.topcharts_item_title').text
 #artistname: css('div.topcharts_item_artist_newmusicpage.topcharts_item_artist')
 #releasedate: css('div.topcharts_item_releasedate')
+#genre: css('div.topcharts_item_genres_container')
+#position: css('div.topcharts_position')
+#rating: css('span.topcharts_stat.topcharts_avg_rating_stat')
