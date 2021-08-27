@@ -11,3 +11,7 @@ def scraper
 end
 
 scraper
+
+#albumname: css('div.topcharts_item_title').text
+#artistname: css('div.topcharts_item_artist_newmusicpage.topcharts_item_artist')
+#releasedate: css('div.topcharts_item_releasedate')
