@@ -1,0 +1,6 @@
+class AlbumJoy::CLI
+
+
+
+
+end
