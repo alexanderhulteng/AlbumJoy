@@ -1,6 +1,6 @@
 require 'pry'
 class AlbumJoy::Album 
-    attr_accessor :name, :artist, :description, :release_date, :rating, :url
+    attr_accessor :name, :artist, :description, :release_date, :rating, :url, :duration
 
     @@all = []
 
@@ -33,7 +33,11 @@ class AlbumJoy::Album
 
     def add_rating
         @rating ||= doc.css('div.allmusic-rating.rating-allmusic-7').text.strip
-        end
+    end
+
+    def add_length
+        @duration ||= doc.css('div.duration span').text.strip
+    end
 
 
 
