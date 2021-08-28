@@ -21,8 +21,21 @@ class AlbumJoy::Album
 
     def self.all
         @@all
-        binding.pry
     end
+
+    def doc
+        @doc ||= Nokogiri::HTML(open(self.url))
+    end
+
+    def add_release
+        @release ||= doc.css('div.release-date span').text.strip
+    end
+
+    def add_rating
+        @rating ||= doc.css('div.allmusic-rating.rating-allmusic-7').text.strip
+        end
+
+
 
    
     
