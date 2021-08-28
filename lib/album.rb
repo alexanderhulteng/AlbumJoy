@@ -39,6 +39,10 @@ class AlbumJoy::Album
         @duration ||= doc.css('div.duration span').text.strip
     end
 
+   # def selected(input)
+       # @@all[input]
+   # end
+
 
 
    
