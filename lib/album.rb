@@ -1,4 +1,4 @@
-require 'pry'
+
 class AlbumJoy::Album 
     attr_accessor :name, :artist, :description, :release_date, :rating, :url, :duration
 
@@ -6,7 +6,7 @@ class AlbumJoy::Album
 
     def self.new_from_index_page(a)
         self.new(a.css('h4.italic').text.strip, 
-        'https://www.allmusic.com/album/' + a.css('a')[0].attributes['href'].value, 
+        'https://www.allmusic.com' + a.css('a')[0].attributes['href'].value, 
         a.css('h4').first.text.strip, 
         a.css('p').text.strip)
     end
@@ -32,7 +32,7 @@ class AlbumJoy::Album
     end
 
     def add_rating
-        @rating ||= doc.css('div.allmusic-rating.rating-allmusic-7').text.strip
+        @rating ||= doc.css('div.allmusic-rating').text.strip
     end
 
     def add_length

@@ -8,16 +8,17 @@ class AlbumJoy::CLI
 
     def print_albums
         AlbumJoy::Album.all.each_with_index do |a, i|
-            puts "#{i+1}. #{a.artist}: #{a.name}"
+            puts "#{i+1}. #{a.name}"
         end
     end
 
     def print_detailed(input)
-        puts "Album :" + input.name
-        puts "Artist :" + input.artist
-        puts "Description:" + input.description
+        puts "Album: " + input.name
+        puts "Artist: " + input.artist
+        puts "Description: " + input.description
         
-        puts "Rating :" + input.add_rating
+        puts "Rating: " + input.add_rating
+        puts "Duration: " + input.add_length
 
     end
 
