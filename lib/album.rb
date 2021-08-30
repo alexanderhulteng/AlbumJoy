@@ -1,6 +1,6 @@
 
 class AlbumJoy::Album 
-    attr_accessor :name, :artist, :description, :release_date, :rating, :url, :duration
+    attr_accessor :name, :artist, :description, :release_date, :rating, :url, :duration, :genre, :review
 
     @@all = []
 
@@ -38,6 +38,15 @@ class AlbumJoy::Album
     def add_length
         @duration ||= doc.css('div.duration span').text.strip
     end
+
+    def add_genre
+        @genre ||= doc.css('div.genre a').first.text.strip
+    end
+
+    def add_review
+        @review ||= doc.css('div.text p').text.strip
+    end
+
 
     def self.selected(input)
         self.all[input]
