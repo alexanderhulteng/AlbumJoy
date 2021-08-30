@@ -17,7 +17,7 @@ AlbumJoy is a cutting edge Ruby application used to display the the albums that 
 
 ## Contributing
 
-Any bug reports may be submitted at: https://github.com/alexanderhulteng/AlbumJoy
+Any bug reports may be submitted at: https://github.com/alexanderhulteng/AlbumJoy/issues
 
 
 ## License

@@ -39,7 +39,7 @@ class AlbumJoy::CLI
         
         
         '
-        puts "What album do you wanna hear about???"
+        puts "What album do you wanna hear about??? 1-100"
         
         input = gets.strip
         
